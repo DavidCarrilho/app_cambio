@@ -4,12 +4,6 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 
-Future<Map> getData() async {
-  String request = 'https://api.hgbrasil.com/finance?format=json&key=84c1fbd6';
-  http.Response response = await http.get(request);
-  return json.decode(response.body);
-}
-
 main() => runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -20,6 +14,14 @@ main() => runApp(
         home: Home(),
       ),
     );
+
+Future<Map> getData() async {
+  String request = 'https://api.hgbrasil.com/finance?format=json&key=84c1fbd6';
+  http.Response response = await http.get(request);
+  print(json.decode(response.body));
+
+  return json.decode(response.body);
+}
 
 class Home extends StatefulWidget {
   @override
@@ -71,28 +73,7 @@ class _HomeState extends State<Home> {
     }
     double euro = double.parse(text);
     realController.text = (euro * this.euro).toStringAsFixed(2);
-    dolarController.text = (euro * this.euro).toStringAsFixed(2);
-  }
-
-  Widget buildTextField(
-      String label, String prefix, TextEditingController c, Function f) {
-    return TextField(
-      controller: c,
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: TextStyle(
-          color: Colors.green,
-        ),
-        border: OutlineInputBorder(),
-        prefixText: prefix,
-      ),
-      style: TextStyle(
-        color: Colors.green,
-        fontSize: 25.0,
-      ),
-      onChanged: f,
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
-    );
+    dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   }
 
   @override
@@ -134,10 +115,10 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-                dolar = snapshot.data["results"]["curresncies"]["USD"]["buy"];
-                euro = snapshot.data["results"]["curresncies"]["EUR"]["buy"];
+                dolar = snapshot.data["results"]["currencies"]["USD"]["buy"];
+                euro = snapshot.data["results"]["currencies"]["EUR"]["buy"];
                 return SingleChildScrollView(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(40.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -146,6 +127,11 @@ class _HomeState extends State<Home> {
                         size: 180.0,
                         color: Colors.green,
                       ),
+                        buildTextField("Reais", "R\$ ", realController, _realChanged),
+                        Divider(),
+                        buildTextField("Euros", "€ ", euroController, _euroChanged),
+                        Divider(),
+                        buildTextField("Dólares", "US\$ ", dolarController, _dolarChanged),
                     ],
                   ),
                 );
@@ -153,6 +139,21 @@ class _HomeState extends State<Home> {
           }
         },
       ),
+    );
+  }
+
+  Widget buildTextField(
+      String label, String prefix, TextEditingController c, Function f) {
+    return TextField(
+      controller: c,
+      decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(color: Colors.green),
+          border: OutlineInputBorder(),
+          prefixText: prefix),
+      style: TextStyle(color: Colors.green, fontSize: 25.0),
+      onChanged: f,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
     );
   }
 }
