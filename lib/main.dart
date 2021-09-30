@@ -76,10 +76,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      icon: Icon(Icons.ac_unit),
-      label: Text('da'),
-      onPressed: () {},
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text('Conversor de Moeda'),
+        backgroundColor: Colors.green,
+        centerTitle: true,
+      ),
     );
   }
 }
