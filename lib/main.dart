@@ -83,6 +83,55 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.green,
         centerTitle: true,
       ),
+      body: FutureBuilder<Map>(
+        future: getData(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                child: Text(
+                  'Aguarde...',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 30.0,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              );
+              break;
+            default:
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    'Ops, houve uma falha ao buscar os dados',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 25.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              } else {
+                dolar = snapshot.data["results"]["curresncies"]["USD"]["buy"];
+                euro = snapshot.data["results"]["curresncies"]["EUR"]["buy"];
+                return SingleChildScrollView(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Icon(
+                        Icons.attach_money,
+                        size: 180.0,
+                        color: Colors.green,
+                      ),
+                    ],
+                  ),
+                );
+              }
+          }
+        },
+      ),
     );
   }
 }
