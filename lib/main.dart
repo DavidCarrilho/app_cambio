@@ -74,6 +74,27 @@ class _HomeState extends State<Home> {
     dolarController.text = (euro * this.euro).toStringAsFixed(2);
   }
 
+  Widget buildTextField(
+      String label, String prefix, TextEditingController c, Function f) {
+    return TextField(
+      controller: c,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: TextStyle(
+          color: Colors.green,
+        ),
+        border: OutlineInputBorder(),
+        prefixText: prefix,
+      ),
+      style: TextStyle(
+        color: Colors.green,
+        fontSize: 25.0,
+      ),
+      onChanged: f,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
