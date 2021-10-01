@@ -4,7 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Aplicativo onde o usuário poderá informar um valor em real, dólar ou euro e
+automaticamente o aplicativo vai buscar via uma API os dados do
+câmbio das três moedas e atualizar as duas outras de maneira a
+haver equivalência dos valores.
 
 A few resources to get you started if this is your first Flutter project:
 
