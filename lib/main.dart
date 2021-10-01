@@ -8,7 +8,7 @@ main() => runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          hintColor: Colors.green,
+          hintColor: Colors.amber,
           primaryColor: Colors.white,
         ),
         home: Home(),
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('Conversor de Moeda'),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.amber,
         centerTitle: true,
       ),
       body: FutureBuilder<Map>(
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                 child: Text(
                   'Aguarde...',
                   style: TextStyle(
-                    color: Colors.green,
+                    color: Colors.amber,
                     fontSize: 30.0,
                   ),
                   textAlign: TextAlign.center,
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Ops, houve uma falha ao buscar os dados',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Colors.amber,
                       fontSize: 25.0,
                     ),
                     textAlign: TextAlign.center,
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                       Icon(
                         Icons.attach_money,
                         size: 180.0,
-                        color: Colors.green,
+                        color: Colors.amber,
                       ),
                         buildTextField("Reais", "R\$ ", realController, _realChanged),
                         Divider(),
@@ -148,10 +148,10 @@ class _HomeState extends State<Home> {
       controller: c,
       decoration: InputDecoration(
           labelText: label,
-          labelStyle: TextStyle(color: Colors.green),
+          labelStyle: TextStyle(color: Colors.amber),
           border: OutlineInputBorder(),
           prefixText: prefix),
-      style: TextStyle(color: Colors.green, fontSize: 25.0),
+      style: TextStyle(color: Colors.amber, fontSize: 25.0),
       onChanged: f,
       keyboardType: TextInputType.numberWithOptions(decimal: true),
     );
