@@ -5,6 +5,10 @@ automaticamente o aplicativo vai buscar via uma API os dados do
 câmbio das três moedas e atualizar as duas outras de maneira a
 haver equivalência dos valores.
 
+screenshot/Screenshot_1633114345.png
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
