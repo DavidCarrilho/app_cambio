@@ -5,11 +5,10 @@ automaticamente o aplicativo vai buscar via uma API os dados do
 câmbio das três moedas e atualizar as duas outras de maneira a
 haver equivalência dos valores.
 
-screenshot/Screenshot_1633114345.png
-
-[app_cambio/Screenshot_1633114345.png at main · DavidCarrilho/app_cambio · GitHub](https://github.com/DavidCarrilho/app_cambio/blob/main/screenshot/Screenshot_1633114345.png)
-
-
+<p float="left">
+  <img src="screenshot/Screenshot_1633114345.png" width="250" />
+  <img src="screenshot/Screenshot_1633114350.png" width="250" />
+</p>
 
 ## Getting Started
 
