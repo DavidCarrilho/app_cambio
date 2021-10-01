@@ -1,6 +1,9 @@
 # app_cambio
 
-A new Flutter project.
+Aplicativo em flutter onde o usuário poderá informar um valor em real, dólar ou euro e
+automaticamente o aplicativo vai buscar via uma API os dados do
+câmbio das três moedas e atualizar as duas outras de maneira a
+haver equivalência dos valores.
 
 ## Getting Started
 
