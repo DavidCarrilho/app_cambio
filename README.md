@@ -12,6 +12,8 @@ haver equivalência dos valores.
 
 ## Getting Started
 
+A new Flutter project made in 1.22.5 version
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
